@@ -1,29 +1,71 @@
-# Create T3 App
+# Punk Calendar
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A community-driven calendar application for punk rock events in New York City, built with the [T3 Stack](https://create.t3.gg/).
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- 🎵 Browse upcoming punk shows and events
+- Submit shows
+- 🔐 User authentication via Discord
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Getting Started
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Prerequisites
 
-## Learn More
+- Node.js 18+ 
+- PostgreSQL
+- npm
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Installation
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+1. Clone the repository:
+   ```bash
+   git clone this_repo.git
+   cd punk-calendar
+   ```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## How do I deploy this?
+3. Create a `.env` file in the root directory with the following variables:
+    ```env
+    Database URL for PostgreSQL
+    DATABASE_URL="postgresql://postgres:password@localhost:5432/punk_calendar"
+    Next Auth
+    NEXTAUTH_SECRET="your-secret-here"
+    NEXTAUTH_URL="http://localhost:3000"
+    Discord OAuth
+    DISCORD_CLIENT_ID="your-discord-client-id"
+    DISCORD_CLIENT_SECRET="your-discord-client-secret"
+    ```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+4. Start the development database:
+
+   ```bash
+   chmod +x ./start-database.sh
+   ./start-database.sh
+   ```
+   Note: Make sure Docker is installed and running on your system.
+
+5. Initialize the database:
+   ```bash
+   npx prisma db push
+   ```
+
+6. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+Visit `http://localhost:3000` to see the application running.
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Background image from [DeviantArt](https://www.deviantart.com/)
+- [T3 Stack](https://create.t3.gg/) for the stack
